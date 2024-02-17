@@ -42,7 +42,7 @@ export default function Home() {
       <video
         style={{
           width: "100%",
-          transform: environment === "user" ? "scaleX(-1)" : "",
+          transform: facingMode === "user" ? "scaleX(-1)" : "",
         }}
         ref={videoRef}
       ></video>
