@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const videoRef = useRef(null);
-  const [facingMode, setFacingMode] = useState("user");
+  const [facingMode, setFacingMode] = useState("enviroment");
 
   const getVideo = () => {
     navigator?.mediaDevices
@@ -38,9 +38,12 @@ export default function Home() {
     <div>
       <h1>camera</h1>
       <button onClick={handleClick} style={{ height: 100, width: 100 }}>
-        Get Video
+        Get Video 2
       </button>
-      <video style={{ width: "100%" }} ref={videoRef}></video>
+      <video
+        style={{ width: "100%", transform: "scaleX(-1)" }}
+        ref={videoRef}
+      ></video>
     </div>
   );
 }
