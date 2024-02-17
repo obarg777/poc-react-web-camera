@@ -43,12 +43,11 @@ export default function Home() {
 
   const handleClick = () => {
     setFacingMode(facingMode === "user" ? "environment" : "user");
-    getVideo();
   };
 
   useEffect(() => {
     getVideo();
-  }, [videoRef]);
+  }, [videoRef, facingMode]);
 
   return (
     <div>
