@@ -6,6 +6,10 @@ export default function Home() {
   const [facingMode, setFacingMode] = useState("environment");
 
   const getVideo = () => {
+    videoRef.current.srcObject?.getTracks().forEach((track) => {
+      track.stop();
+    });
+
     navigator?.mediaDevices
       ?.getUserMedia({
         video: {
