@@ -11,7 +11,9 @@ export default function Home() {
         video: {
           width: { ideal: 1280 },
           height: { ideal: 720 },
-          facingMode,
+          facingMode: {
+            exact: facingMode,
+          },
         },
       })
       .then((stream) => {
@@ -36,7 +38,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>camera</h1>
+      <h1>camera - {facingMode}</h1>
       <button onClick={handleClick} style={{ height: 100, width: 100 }}>
         Get Video 2
       </button>
