@@ -40,7 +40,10 @@ export default function Home() {
         Switch Camera
       </button>
       <video
-        style={{ width: "100%", transform: "scaleX(-1)" }}
+        style={{
+          width: "100%",
+          transform: environment === "user" ? "scaleX(-1)" : "",
+        }}
         ref={videoRef}
       ></video>
     </div>
