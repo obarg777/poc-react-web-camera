@@ -8,13 +8,16 @@ export default function Home() {
   const stopVideo = () => {
     const video = videoRef.current;
     const stream = video.srcObject;
-    const tracks = stream.getTracks();
 
-    tracks.forEach((track) => {
-      track.stop();
-    });
+    if (video && stream) {
+      const tracks = stream.getTracks();
 
-    video.srcObject = null;
+      tracks.forEach((track) => {
+        track.stop();
+      });
+
+      video.srcObject = null;
+    }
   };
 
   const getVideo = () => {
