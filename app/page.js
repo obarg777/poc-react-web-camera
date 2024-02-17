@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const videoRef = useRef(null);
-  const [facingMode, setFacingMode] = useState("enviroment");
+  const [facingMode, setFacingMode] = useState("environment");
 
   const getVideo = () => {
     navigator?.mediaDevices
@@ -11,9 +11,7 @@ export default function Home() {
         video: {
           width: { ideal: 1280 },
           height: { ideal: 720 },
-          facingMode: {
-            exact: facingMode,
-          },
+          facingMode,
         },
       })
       .then((stream) => {
@@ -27,20 +25,19 @@ export default function Home() {
   };
 
   const handleClick = () => {
-    setFacingMode(facingMode === "user" ? "enviroment" : "user");
+    setFacingMode(facingMode === "user" ? "environment" : "user");
     getVideo();
   };
 
   useEffect(() => {
-    setFacingMode("user");
     getVideo();
-  }, []);
+  }, [videoRef]);
 
   return (
     <div>
       <h1>camera - {facingMode}</h1>
       <button onClick={handleClick} style={{ height: 100, width: 100 }}>
-        Get Video 2
+        Switch Camera
       </button>
       <video
         style={{ width: "100%", transform: "scaleX(-1)" }}
