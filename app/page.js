@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const videoRef = useRef(null);
-  const [facingMode, setFacingMode] = useState("environment");
+  const [facingMode, setFacingMode] = useState("user");
 
   const stopVideo = () => {
     const video = videoRef.current;
